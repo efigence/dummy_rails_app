@@ -6,6 +6,3 @@ before_install:
   - gem install bundler -v 1.10.5 --no-doc
 install:
   - 'travis_retry bundle install'
-env:
-  - DB=sqlite
-  - SH=bash
