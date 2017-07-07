@@ -1,3 +1,10 @@
+PATH
+  remote: ../new_artrails_capistrano
+  specs:
+    new_artrails_capistrano (0.0.1)
+      capistrano (>= 3.8, < 4)
+      capistrano-rails (>= 1.3, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -163,11 +170,12 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  capistrano (~> 3.8)
-  capistrano-rails (~> 1.3)
+  capistrano (~> 3.1)
+  capistrano-rails (~> 1.1)
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  new_artrails_capistrano!
   rails (= 4.2.9)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
