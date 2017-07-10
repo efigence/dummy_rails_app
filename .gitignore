@@ -309,3 +309,9 @@ tags
 config/deploy/personal_production.local.rb
 .rsync_cache
 .front_rsync_cache
+
+# rspec failure tracking
+.rspec_status
+
+# Custom output
+rubocop_output.json
