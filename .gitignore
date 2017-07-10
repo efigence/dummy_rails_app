@@ -307,3 +307,5 @@ tags
 # End of https://www.gitignore.io/api/vim,git,ruby,macos,linux,emacs,rubymine,sublimetext,rails,visualstudiocode
 
 config/deploy/personal_production.local.rb
+.rsync_cache
+.front_rsync_cache
