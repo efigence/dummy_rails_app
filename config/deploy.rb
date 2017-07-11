@@ -4,24 +4,15 @@
 # config valid only for current version of Capistrano
 lock '3.8.2'
 
-set :local_user, 'mkalita'
-
-set :application, 'dummy_rails_app'
+set :application, %x(basename \`pwd\`).chomp
 
 # https://confluence.atlassian.com/bitbucketserver/permanently-authenticating-with-git-repositories-776639846.html
 # http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/
 set :repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app.git' # "git@example.com:me/my_repo.git"
+set :front_repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app-front.git'
 
 set :scm, :new_artrails_capistrano
-
-set :user,           'mkalita'
-set :repo_url,       'https://rubyconvict:@github.com/efigence/dummy_rails_app.git' # "ssh://git@github.com/myusername/myrepository"
-set :branch,         'master'
-set :rsync_exclude,  %w[.git*]
-set :rsync_include,  %w[]
-set :rsync_options,  %w[--archive --recursive --delete --delete-excluded]
-set :local_cache,    ".cache_#{fetch(:stage)}"
-set :remote_cache,   'shared/cache'
+set :process_owner_user, 'mongrel'
 
 SSHKit.config.command_map[:rake]  = 'bundle exec rake'
 SSHKit.config.command_map[:rails] = 'bundle exec rails'
@@ -31,7 +22,7 @@ SSHKit.config.command_map[:rails] = 'bundle exec rails'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
-set :deploy_to, "/home/#{fetch(:local_user)}/dummy_rails_app"
+set :deploy_to, '/home/httpd/html/refinery'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -45,17 +36,20 @@ set :deploy_to, "/home/#{fetch(:local_user)}/dummy_rails_app"
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", "config/secrets.yml"
-append :linked_files, 'config/database.yml', 'config/secrets.yml'
+append :linked_files, 'config/database.yml', 'config/secrets.yml' # , 'sidekiq.yml', 'settings.yml', 'settings/production.yml'
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'public/assets', 'db/uploads'
+
+set :bundle_without, %i[development test]
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
+set :local_user, `whoami`.chomp
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5

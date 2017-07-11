@@ -1,3 +1,54 @@
+# stage specific
+set :branch, 'master'
+set :front_branch, 'master'
+
+# local overrides
+load './config/deploy/personal_production.rb'
+
+# network reachable address of the application e.g. 'domain.com:8080'
+set :app_address, "#{fetch(:application)}.dev.artegence.com"
+
+# server config
+# role :web, 'dev55.non.3dart.com'
+# role :app, 'dev55.non.3dart.com'
+# role :db,  'dev55.non.3dart.com', primary: true
+
+# hooks
+# after 'deploy:start',    'artrails:sidekiq:start'
+# after 'deploy:stop',     'artrails:sidekiq:stop'
+# monit zrobi restart
+# after "deploy:restart",  "artrails:sidekiq:restart"
+# after 'deploy:restart',  'artrails:sidekiq:stop'
+
+# project specific tasks and task overrides
+# namespace :artrails do
+#   namespace :sidekiq do
+#     task :start do
+#       on roles :app do
+#         run "nohup #{current_path}/script/sidekiq start"
+#       end
+#     end
+#
+#     task :stop do
+#       on roles :app do
+#         run "nohup #{current_path}/script/sidekiq stop"
+#       end
+#     end
+#
+#     task :restart do
+#       on roles :app, exclude: :no_release do
+#         run "nohup #{current_path}/script/sidekiq restart"
+#       end
+#     end
+#   end
+# end
+#
+# namespace :artrails do
+#   task :check_is_it_working, :roles => :web, :except => { :no_release => true } do
+#     # # # #
+#   end
+# end
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -6,7 +57,8 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server 'dev55.non.3dart.com', user: 'mkalita', roles: %w[app db web]
+
+server 'dev55.non.3dart.com', user: "#{fetch(:local_user)}", roles: %w[app db web]
 
 # role-based syntax
 # ==================
