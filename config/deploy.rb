@@ -1,4 +1,5 @@
 # HOWTO
+# bundle exec cap staging new_artrails_capistrano:setup --trace
 # bundle exec cap staging deploy:check:directories deploy:check:make_linked_dirs new_artrails_capistrano:release
 
 # config valid only for current version of Capistrano
@@ -12,7 +13,7 @@ set :repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app.git' # 
 set :front_repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app-front.git'
 
 set :scm, :new_artrails_capistrano
-set :process_owner_user, 'mongrel'
+set :new_artrails_capistrano_sudo_as, 'mongrel'
 
 SSHKit.config.command_map[:rake]  = 'bundle exec rake'
 SSHKit.config.command_map[:rails] = 'bundle exec rails'
@@ -34,9 +35,10 @@ set :deploy_to, '/home/httpd/html/refinery'
 # Default value for :pty is false
 # set :pty, true
 
+set :new_artrails_capistrano_config_files, %w(database.yml secrets.yml) # , 'sidekiq.yml', 'settings.yml', 'settings/production.yml'
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml", "config/secrets.yml"
-append :linked_files, 'config/database.yml', 'config/secrets.yml' # , 'sidekiq.yml', 'settings.yml', 'settings/production.yml'
+# append :linked_files, 'config/database.yml', 'config/secrets.yml' # , 'config/sidekiq.yml', 'config/settings.yml', 'settings/production.yml'
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -53,3 +55,5 @@ set :local_user, `whoami`.chomp
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+set :new_artrails_capistrano_log_dir_name, 'refinery'
