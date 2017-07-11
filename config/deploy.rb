@@ -1,5 +1,5 @@
 # HOWTO
-# bundle exec cap staging new_artrails_capistrano:setup --trace
+# bundle exec cap staging deploy:setup deploy --trace
 # bundle exec cap staging deploy:check:directories deploy:check:make_linked_dirs new_artrails_capistrano:release
 
 # config valid only for current version of Capistrano
@@ -15,8 +15,8 @@ set :front_repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app-f
 set :scm, :new_artrails_capistrano
 set :new_artrails_capistrano_sudo_as, 'mongrel'
 
-SSHKit.config.command_map[:rake]  = 'bundle exec rake'
-SSHKit.config.command_map[:rails] = 'bundle exec rails'
+# SSHKit.config.command_map[:rake]  = 'bundle exec rake'
+# SSHKit.config.command_map[:rails] = 'bundle exec rails'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
