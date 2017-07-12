@@ -46,7 +46,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 
 set :bundle_without, %i[development test]
 # set :bundle_flags, '--deployment --quiet'
-set :bundle_flags, '--deployment'
+set :bundle_flags, '--deployment --local'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
