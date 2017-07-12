@@ -51,7 +51,11 @@ group :development do
   # else
   #   gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
   # end
-  install_if -> { ENV['DEPLOY'] != 'true' } do
-    gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
-  end
+  # install_if -> { ENV['RAILS_ENV'] == 'development' } do
+  #   gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
+  # end
+  # install_if -> { ENV['RAILS_ENV'] == 'production' } do
+    # bundle package --all
+    gem 'new_artrails_capistrano', git: 'https://github.com/efigence/new_artrails_capistrano'
+  # end
 end
