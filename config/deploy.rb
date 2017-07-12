@@ -45,6 +45,8 @@ set :new_artrails_capistrano_config_files, %w(database.yml secrets.yml) # , 'sid
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'public/assets', 'db/uploads'
 
 set :bundle_without, %i[development test]
+# set :bundle_flags, '--deployment --quiet'
+set :bundle_flags, '--deployment'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

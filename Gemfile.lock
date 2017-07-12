@@ -1,5 +1,5 @@
 PATH
-  remote: ../new_artrails_capistrano
+  remote: vendor/gems/new_artrails_capistrano
   specs:
     new_artrails_capistrano (0.0.1)
       capistrano (>= 3.5, < 4)

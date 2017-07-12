@@ -45,5 +45,12 @@ group :development do
   gem 'spring'
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'new_artrails_capistrano', path: '../new_artrails_capistrano'
+  # if ENV['DEPLOY'] == 'true'
+  #   gem 'new_artrails_capistrano', git: 'https://github.com/efigence/new_artrails_capistrano'
+  # else
+  #   gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
+  # end
+  install_if -> { ENV['DEPLOY'] != 'true' } do
+    gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
+  end
 end
