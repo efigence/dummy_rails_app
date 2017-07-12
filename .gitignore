@@ -143,7 +143,6 @@ bower.json
 .byebug_history
 
 ### Ruby ###
-*.gem
 /.config
 /InstalledFiles
 /pkg/
