@@ -23,3 +23,13 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+# production:
+#   adapter: mysql2
+#   database: refinery
+#   username: rails
+#   password: rails
+#   encoding: utf8
+#   collation: utf8_polish_ci
+#   reconnect: true
+#   host: mysql
