@@ -2,6 +2,8 @@
 set :branch, 'master'
 set :front_branch, 'master'
 
+set :rails_env, 'production' # staging
+
 # local overrides
 load './config/deploy/personal_production.rb'
 
