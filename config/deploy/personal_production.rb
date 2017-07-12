@@ -12,6 +12,15 @@ after 'deploy:restart', 'maintenance:off'
 #     cmd = %( sudo -iu #{process_owner_user} touch #{latest_release}/tmp/isItWorking.txt )
 #     run cmd
 #   end
+# TODO: rewrite
+# on roles :all do
+#   within fetch(:latest_release_directory) do
+#     with rails_env: fetch(:rails_env) do
+#       execute :rake, 'assets:precompile'
+#     end
+#   end
+# end
+
 # end
 
 # task :mark_revision do
