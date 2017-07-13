@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  # http://wiki.non.3dart.com/JSPWiki/Wiki.jsp?page=Projects.java.Monitoring
+  match '/isItWorking', to: proc { |_env|
+                              if File.exist?(Rails.root.join('tmp/isItWorking.txt'))
+                                [200, {}, ['I am working.']]
+                              else
+                                [500, {}, ["I'm not working."]]
+                              end
+                            }, via: [:get, :post, :head]
+  get '/isItWorking/getStatus' => 'tools/status#index', important: true
+  get '/isItWorking/REVISION', to: proc { |_env| [200, {}, [REVISION.to_s]] }
+  get '/isItWorking/FRONT_REVISION', to: proc { |_env| [200, {}, [FRONT_REVISION.to_s]] }  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
