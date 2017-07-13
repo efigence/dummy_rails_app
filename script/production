@@ -1,0 +1,24 @@
+#!/bin/bash
+DIR=$(cd $(dirname "$0"); pwd)
+case "$1" in
+  "start")
+    cd $DIR
+    cd ..
+
+     sudo /etc/init.d/passenger start
+    ;;
+  "stop")
+    cd $DIR
+    cd ..
+
+    sudo /etc/init.d/passenger stop
+    ;;
+  "restart")
+    cd $DIR
+    cd ..
+
+    #sudo /etc/init.d/passenger reload
+    touch tmp/restart.txt
+    ;;
+  *) echo "Usage: script/production start|stop|restart"
+esac
