@@ -10,7 +10,7 @@ load './config/deploy/personal_production.rb'
 # network reachable address of the application e.g. 'domain.com:8080'
 # set :app_address, "#{fetch(:application)}.dev.artegence.com"
 
-set :app_address, "refinery.non.3dart.com:8080"
+set :app_address, 'refinery.non.3dart.com'
 
 # server config
 # role :web, 'dev55.non.3dart.com'
