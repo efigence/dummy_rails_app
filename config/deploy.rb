@@ -1,6 +1,5 @@
 # HOWTO
 # bundle exec cap staging deploy:setup deploy --trace
-# bundle exec cap staging deploy:check:directories deploy:check:make_linked_dirs new_artrails_capistrano:release
 
 # config valid only for current version of Capistrano
 lock '3.8.2'
