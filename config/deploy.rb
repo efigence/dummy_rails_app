@@ -40,11 +40,11 @@ set :new_artrails_capistrano_config_files, %w(database.yml secrets.yml) # , 'sid
 # append :linked_files, 'config/database.yml', 'config/secrets.yml' # , 'config/sidekiq.yml', 'config/settings.yml', 'settings/production.yml'
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'public/assets', 'db/uploads'
+# append :linked_dirs, # 'public/[assets_prefix]' is added by capistrano-rails
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'db/uploads'
 
 set :bundle_without, %w[development test].join(' ')
-
+set :bundle_path, -> { shared_path.join('vendor/bundle') }
 # set :bundle_flags, '--deployment --quiet'
 set :bundle_flags, '--deployment --local'
 
