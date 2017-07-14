@@ -1,5 +1,6 @@
-PATH
-  remote: vendor/gems/new_artrails_capistrano
+GIT
+  remote: https://github.com/efigence/new_artrails_capistrano
+  revision: 80b4bf1f2aa226cc918025c1120606fd94c7c8ab
   specs:
     new_artrails_capistrano (0.0.1)
       capistrano (>= 3.5, < 4)

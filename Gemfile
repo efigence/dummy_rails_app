@@ -51,7 +51,11 @@ group :development do
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
 
+  # before going to travis:
+  gem 'new_artrails_capistrano', git: 'https://github.com/efigence/new_artrails_capistrano'
+  # bundle install
   # bundle package --all
-  # gem 'new_artrails_capistrano', git: 'https://github.com/efigence/new_artrails_capistrano'
-  gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
+
+  # work, work, work...
+  # gem 'new_artrails_capistrano', path: 'vendor/gems/new_artrails_capistrano'
 end
