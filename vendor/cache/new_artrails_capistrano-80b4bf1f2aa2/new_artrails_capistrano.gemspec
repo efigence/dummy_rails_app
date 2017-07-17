@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Marcin Kalita", "Rafa\u{142} Lisowski"]
   s.bindir = "exe"
-  s.date = "2017-07-14"
+  s.date = "2017-07-17"
   s.description = "This gem is a viable alternative to Git deployments on production machines. Commands are run under a different user than the `deploy` user."
   s.email = ["rubyconvict@gmail.com", "lisukorin@gmail.com"]
   s.files = [".codeclimate.yml", ".gitignore", ".rspec_status", ".rubocop.yml", ".rubocop_todo.yml", ".travis.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md", "Gemfile", "Guardfile", "LICENSE.txt", "Manifest.txt", "README.md", "Rakefile", "bin/console", "bin/setup", "config.reek", "lib/.keep", "lib/capistrano/new_artrails_capistrano.rb", "lib/capistrano/new_artrails_capistrano/version.rb", "lib/capistrano/tasks/new_artrails_capistrano.rake", "lib/new_artrails_capistrano.rb", "new_artrails_capistrano.gemspec", "rubocop_output.json"]
