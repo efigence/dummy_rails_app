@@ -12,6 +12,10 @@ set :front_application, "#{fetch(:application)}-front"
 set :repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app.git' # "git@example.com:me/my_repo.git"
 set :front_repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app-front.git'
 
+set :front_install_command, <<-CMD
+  npm run build
+CMD
+
 set :scm, :new_artrails_capistrano
 set :new_artrails_capistrano_sudo_as, 'mongrel'
 
@@ -61,3 +65,6 @@ set :local_user, `whoami`.chomp
 # set :keep_releases, 5
 
 set :new_artrails_capistrano_log_dir_name, 'refinery'
+
+# comment this out if deploying Rails without SPA app
+after 'deploy:assets:precompile', 'deploy:front'
