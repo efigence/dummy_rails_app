@@ -41,7 +41,8 @@ set :new_artrails_capistrano_config_files, %w(database.yml secrets.yml) # , 'sid
 
 # Default value for linked_dirs is []
 # append :linked_dirs, # 'public/[assets_prefix]' is added by capistrano-rails
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'db/uploads'
+# 'log' - we symlink to var log instead
+append :linked_dirs, 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'db/uploads'
 
 set :bundle_without, %w[development test].join(' ')
 set :bundle_path, -> { shared_path.join('vendor/bundle') }
