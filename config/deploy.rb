@@ -5,6 +5,7 @@
 lock '3.8.2'
 
 set :application, %x(basename \`pwd\`).chomp
+set :front_application, "#{fetch(:application)}-front"
 
 # https://confluence.atlassian.com/bitbucketserver/permanently-authenticating-with-git-repositories-776639846.html
 # http://capistranorb.com/documentation/getting-started/authentication-and-authorisation/
