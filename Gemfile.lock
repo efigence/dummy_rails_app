@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/efigence/new_artrails_capistrano
-  revision: b6c0f1fe332b0308d1c266a9f8467fa37f70c0df
+  revision: 3269a19ed7e126fe99e969b20fdccfdcf9930070
   specs:
     new_artrails_capistrano (0.0.1)
       capistrano (>= 3.5, < 4)
