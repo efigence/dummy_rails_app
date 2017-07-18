@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Marcin Kalita", "Rafa\u{142} Lisowski"]
   s.bindir = "exe"
-  s.date = "2017-07-17"
+  s.date = "2017-07-18"
   s.description = "This gem is a viable alternative to Git deployments on production machines. Commands are run under a different user than the `deploy` user."
   s.email = ["rubyconvict@gmail.com", "lisukorin@gmail.com"]
   s.files = [".codeclimate.yml", ".gitignore", ".rspec_status", ".rubocop.yml", ".rubocop_todo.yml", ".travis.yml", "CHANGELOG.md", "CODE_OF_CONDUCT.md", "Gemfile", "Guardfile", "LICENSE.txt", "Manifest.txt", "README.md", "Rakefile", "bin/console", "bin/setup", "config.reek", "lib/.keep", "lib/capistrano/new_artrails_capistrano.rb", "lib/capistrano/new_artrails_capistrano/version.rb", "lib/capistrano/tasks/new_artrails_capistrano.rake", "lib/new_artrails_capistrano.rb", "new_artrails_capistrano.gemspec", "rubocop_output.json"]
@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<capistrano-rvm>, ["< 2", ">= 0.1"])
       s.add_runtime_dependency(%q<rack>, ["< 2", ">= 1.6"])
       s.add_runtime_dependency(%q<turnout>, ["< 3", ">= 2.2"])
+      s.add_runtime_dependency(%q<cap-deploy-tagger>, ["< 1", ">= 0.2"])
       s.add_development_dependency(%q<bundler>, ["~> 1.10"])
       s.add_development_dependency(%q<rake>, ["~> 10.0"])
       s.add_development_dependency(%q<rspec>, ["~> 3.0"])
@@ -55,6 +56,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<capistrano-rvm>, ["< 2", ">= 0.1"])
       s.add_dependency(%q<rack>, ["< 2", ">= 1.6"])
       s.add_dependency(%q<turnout>, ["< 3", ">= 2.2"])
+      s.add_dependency(%q<cap-deploy-tagger>, ["< 1", ">= 0.2"])
       s.add_dependency(%q<bundler>, ["~> 1.10"])
       s.add_dependency(%q<rake>, ["~> 10.0"])
       s.add_dependency(%q<rspec>, ["~> 3.0"])
@@ -82,6 +84,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<capistrano-rvm>, ["< 2", ">= 0.1"])
     s.add_dependency(%q<rack>, ["< 2", ">= 1.6"])
     s.add_dependency(%q<turnout>, ["< 3", ">= 2.2"])
+    s.add_dependency(%q<cap-deploy-tagger>, ["< 1", ">= 0.2"])
     s.add_dependency(%q<bundler>, ["~> 1.10"])
     s.add_dependency(%q<rake>, ["~> 10.0"])
     s.add_dependency(%q<rspec>, ["~> 3.0"])
