@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/efigence/new_artrails_capistrano
-  revision: 805470bf50a4acd7d2a4dce4668086e20b5ed422
+  revision: b6c0f1fe332b0308d1c266a9f8467fa37f70c0df
   specs:
     new_artrails_capistrano (0.0.1)
-      cap-deploy-tagger (>= 0.2, < 1)
       capistrano (>= 3.5, < 4)
       capistrano-rails (>= 1.3, < 2)
       capistrano-rvm (>= 0.1, < 2)
@@ -54,7 +53,6 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (9.0.6)
-    cap-deploy-tagger (0.2.0)
     capistrano (3.8.2)
       airbrussh (>= 1.0.0)
       i18n
