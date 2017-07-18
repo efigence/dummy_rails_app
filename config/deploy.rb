@@ -13,7 +13,7 @@ set :repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app.git' # 
 set :front_repo_url, 'https://rubyconvict:@github.com/efigence/dummy_rails_app-front.git'
 
 set :front_install_command, <<-CMD
-  npm run build
+  bash -c "source $HOME/.nvm/nvm.sh && nvm use 7 && npm install && npm run build"
 CMD
 
 set :scm, :new_artrails_capistrano
