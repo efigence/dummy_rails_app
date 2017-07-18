@@ -2,56 +2,53 @@
 set :branch, 'master'
 set :front_branch, 'master'
 
-set :rails_env, 'production' # staging
+set :rails_env, 'production' # replace 'staging'
 
 # local overrides
 load './config/deploy/personal_production.rb'
 
-# network reachable address of the application e.g. 'domain.com:8080'
-# set :app_address, "#{fetch(:application)}.dev.artegence.com"
-
+# network reachable address of the application
+# e.g. "#{fetch(:application)}.dev.artegence.com:8080"
 set :app_address, 'refinery.non.3dart.com'
 
-# server config
-# role :web, 'dev55.non.3dart.com'
-# role :app, 'dev55.non.3dart.com'
-# role :db,  'dev55.non.3dart.com', primary: true
+server 'dev55.non.3dart.com', user: "#{fetch(:local_user)}", roles: %w[app db web]
 
-# hooks
-# after 'deploy:start',    'artrails:sidekiq:start'
-# after 'deploy:stop',     'artrails:sidekiq:stop'
-# monit zrobi restart
-# after "deploy:restart",  "artrails:sidekiq:restart"
-# after 'deploy:restart',  'artrails:sidekiq:stop'
+# project specific hooks, tasks and task overrides
 
-# project specific tasks and task overrides
+# after 'deploy:web_server:start',    'artrails:sidekiq:start'
+# after 'deploy:web_server:stop',     'artrails:sidekiq:stop'
+
+# comment out to leave it to monit
+## after "deploy:web_server:restart",  "artrails:sidekiq:restart"
+
+# after 'deploy:web_server:restart',  'artrails:sidekiq:stop'
+
 # namespace :artrails do
 #   namespace :sidekiq do
 #     task :start do
 #       on roles :app do
-#         run "nohup #{current_path}/script/sidekiq start"
+#         new_artrails_capistrano_run "nohup #{current_path}/script/sidekiq start"
 #       end
 #     end
 #
 #     task :stop do
 #       on roles :app do
-#         run "nohup #{current_path}/script/sidekiq stop"
+#         new_artrails_capistrano_run "nohup #{current_path}/script/sidekiq stop"
 #       end
 #     end
 #
 #     task :restart do
 #       on roles :app, exclude: :no_release do
-#         run "nohup #{current_path}/script/sidekiq restart"
+#         new_artrails_capistrano_run "nohup #{current_path}/script/sidekiq restart"
 #       end
 #     end
 #   end
 # end
-#
-# namespace :artrails do
-#   task :check_is_it_working, :roles => :web, :except => { :no_release => true } do
-#     # # # #
-#   end
-# end
+
+# server config
+# role :web, 'dev55.non.3dart.com'
+# role :app, 'dev55.non.3dart.com'
+# role :db,  'dev55.non.3dart.com', primary: true
 
 # server-based syntax
 # ======================
@@ -61,8 +58,6 @@ set :app_address, 'refinery.non.3dart.com'
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-
-server 'dev55.non.3dart.com', user: "#{fetch(:local_user)}", roles: %w[app db web]
 
 # role-based syntax
 # ==================
